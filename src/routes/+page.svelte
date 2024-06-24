@@ -85,7 +85,7 @@
 			console.error('Error in loadProperties:', err);
 			error = 'An error occurred while loading properties';
 		} finally {
-			toggleDropdown();
+			showAmenitiesDropdown = false;
 		}
 	}
 
@@ -95,7 +95,9 @@
 
 	function goToNextPage() {
 		if (nextPageToken) {
-			loadProperties(nextPageToken);
+			loadProperties(nextPageToken).then(() => {
+				window.scrollTo(0, 600);
+			});
 		}
 	}
 
@@ -105,15 +107,15 @@
 </script>
 
 <div class="background flex flex-col items-center">
-	<div class="flex w-full justify-between p-6">
+	<div class="flex w-full justify-between py-6 px-24">
 		<div>
 			<LogoSvg />
 		</div>
 		<div>
 			<select bind:value={currency} class="custom-select rounded-lg p-2 w-full">
-				<option class="bg-transparent" value="EUR">Euro €</option>
-				<option value="USD">US Dollar $</option>
-				<option value="GBP">British Pound £</option>
+				<option class="bg-transparent" value="EUR">EUR €</option>
+				<option value="USD">USD $</option>
+				<option value="GBP">GBP £</option>
 			</select>
 		</div>
 	</div>
@@ -140,7 +142,7 @@
 		<div>
 			<div class="flex flex-row mt-6">
 				<div class="w-1/3 mr-2">
-					<label>Check-in Date:</label>
+					<label>Aankomst:</label>
 					<input
 						type="date"
 						bind:value={checkInDate}
@@ -148,7 +150,7 @@
 					/>
 				</div>
 				<div class="w-1/3 ml-2">
-					<label>Check-out Date:</label>
+					<label>Vertrek:</label>
 					<input
 						type="date"
 						bind:value={checkOutDate}
@@ -156,7 +158,7 @@
 					/>
 				</div>
 				<div class="w-1/3 ml-2">
-					<label>Guests:</label>
+					<label>Gasten:</label>
 					<input
 						type="number"
 						bind:value={guests}
@@ -168,15 +170,15 @@
 			</div>
 		</div>
 		<div class="mt-6">
-			<label>Sort By:</label>
+			<label>Sorteer op:</label>
 			<select
 				bind:value={sortBy}
 				class="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
 			>
-				<option value="">Relevance</option>
-				<option value="3">Lowest price</option>
-				<option value="8">Highest rating</option>
-				<option value="13">Most reviewed</option>
+				<option value="">Relevantie</option>
+				<option value="3">Laagste prijs</option>
+				<option value="8">Hoogste beoordeling</option>
+				<option value="13">Meest beoordeeld</option>
 			</select>
 		</div>
 
@@ -186,7 +188,7 @@
 				on:click={toggleDropdown}
 				class="border border-gray-300 rounded-lg p-2 w-full bg-white"
 			>
-				Filter Amenities
+				Filter
 			</button>
 			{#if showAmenitiesDropdown}
 				<div class="dropdown-content p-4 bg-white border border-gray-300 rounded-lg shadow-md mt-2">
@@ -209,7 +211,7 @@
 			on:click={() => loadProperties()}
 			class="bg-blue-500 text-white mt-6 rounded-lg p-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
 		>
-			Search
+			Zoeken
 		</button>
 
 		<div class="space-y-6 py-12 mt-4">
