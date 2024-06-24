@@ -110,7 +110,7 @@ export async function GET({ url }) {
 ```
 - De data wordt vervolgens doorgestuurd naar de frontend en weergegeven in `+page.svelte`.
 ```svelte
-sync function loadProperties(pageToken = null) {
+async function loadProperties(pageToken = null) {
 		try {
 			const params = new URLSearchParams({
 				location,
