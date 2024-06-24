@@ -8,6 +8,8 @@ Een SvelteKit-tool waarmee je hotels kunt zoeken via de Google Hotels API. Dit i
 - [Doel van het Project](#doel-van-het-project)
 - [Installatie](#installatie)
 - [Gebruik](#gebruik)
+- [Hoe Ik Dit Heb Gedaan](#hoe-ik-dit-heb-gedaan)
+
 
 
 ## Inleiding
@@ -161,3 +163,10 @@ async function loadProperties(pageToken = null) {
 Als eerste ben ik begonnen bij de [Svelte course van Laracasts](https://laracasts.com/series/svelte-crash-course). Hier heb ik snel wat van de basis geleerd en ben toen snel doorgegaan naar het stuk over de API's. Ik heb geleerd hoe je met SvelteKit een externe API kan fetchen.
 
 Aanvankelijk probeerde ik de API van Booking.com te gebruiken, maar dat vereiste een partnerschap dat niet meer toegankelijk was. Vervolgens heb ik de API van [Amadeus](https://developers.amadeus.com/) geprobeerd, maar hun versie met foto's werkte niet meer. Uiteindelijk heb ik de [SerpApi](https://serpapi.com/) gevonden om de Google Hotels API te gebruiken, wat perfect werkte en een veel hotels en filters aan bood.
+
+Dit was een leuk project om mijn front-end vaardigheden te versterken, en ik ga SvelteKit zeker vaker gebruiken in de toekomst vanwege de gebruiksvriendelijkheid en mogelijkheden. Door de Google Hotels API via SerpApi te intergreren zal ik eenvoudig andere Google API's via SerpApi kunnen gebruiken voor toekomstige projecten.
+
+Ik ben tevreden met het eindresultaat, vooral met de functionaliteit zoals het zoeken en filteren van hotels, het weergeven van beoordelingen, en de foto-slideshow.
+
+
+
