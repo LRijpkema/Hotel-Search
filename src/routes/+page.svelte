@@ -218,10 +218,11 @@
 			{#if currentFrom && currentTo}
 				<p>Showing results from {currentFrom} to {currentTo}</p>
 			{/if}
+
 			{#if properties.length > 0}
 				{#each properties as property}
 					<div
-						class="bg-white border border-gray-300 rounded-lg shadow-lg p-4 w-full flex flex-row"
+						class="bg-white border border-gray-300 rounded-lg shadow-lg p-4 w-full flex flex-col lg:flex-row"
 					>
 						<div class="mr-8">
 							{#if property.images && property.images.length > 0}
